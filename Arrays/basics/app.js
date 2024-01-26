@@ -30,3 +30,19 @@ allBtn.addEventListener("click", () => {
     allElements.innerHTML += array[i] + "<br/>";
   }
 });
+
+// inserting element at given position.
+// Here we are setting the data and element and position also you can get the values from the use.
+let data = [63,23,58,25,23]
+let newElement = 52
+let position = 3
+// running the loop over the data and getting all the values from reverse side so that we can only shift the value in the left
+for(let i = data.length-1; i>=0; i--){
+  if(i>=position){
+    data[i+1] =data[i]
+    if(i==position){
+      data[i]=newElement
+    }
+  }
+}
+let list = document.querySelector('.insert').innerHTML = data
