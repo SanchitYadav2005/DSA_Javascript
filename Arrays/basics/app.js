@@ -46,3 +46,22 @@ for(let i = data.length-1; i>=0; i--){
   }
 }
 let list = document.querySelector('.insert').innerHTML = data
+
+
+//deletion
+
+// In deletion we usually shifts the values from back to forward and remove the last position as we know we can not delete element from the middle of an array.
+
+let dataArray = [43,5,63,23,12,67,66,88,45,32]
+let place = document.querySelector('#delete').value
+let deleteBtn = document.querySelector('.delete-btn')
+let beforeDelete = document.querySelector('.elementsBeforeDeleting')
+let afterDelete = document.querySelector('.elementsAfterDeleting')
+beforeDelete.innerHTML = dataArray + '<br/>'
+deleteBtn.addEventListener('click', ()=>{
+  for(let i = place; i<dataArray.length-1; i++){
+    dataArray[i] = dataArray[i+1]
+  }
+  dataArray.length = dataArray.length-1
+  afterDelete.innerHTML = dataArray + '<br/>'
+})
