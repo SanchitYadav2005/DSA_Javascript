@@ -33,35 +33,62 @@ allBtn.addEventListener("click", () => {
 
 // inserting element at given position.
 // Here we are setting the data and element and position also you can get the values from the use.
-let data = [63,23,58,25,23]
-let newElement = 52
-let position = 3
+let data = [63, 23, 58, 25, 23];
+let newElement = 52;
+let position = 3;
 // running the loop over the data and getting all the values from reverse side so that we can only shift the value in the left
-for(let i = data.length-1; i>=0; i--){
-  if(i>=position){
-    data[i+1] =data[i]
-    if(i==position){
-      data[i]=newElement
+for (let i = data.length - 1; i >= 0; i--) {
+  if (i >= position) {
+    data[i + 1] = data[i];
+    if (i == position) {
+      data[i] = newElement;
     }
   }
 }
-let list = document.querySelector('.insert').innerHTML = data
-
+let list = (document.querySelector(".insert").innerHTML = data);
 
 //deletion
 
 // In deletion we usually shifts the values from back to forward and remove the last position as we know we can not delete element from the middle of an array.
 
-let dataArray = [43,5,63,23,12,67,66,88,45,32]
-let place = document.querySelector('#delete').value
-let deleteBtn = document.querySelector('.delete-btn')
-let beforeDelete = document.querySelector('.elementsBeforeDeleting')
-let afterDelete = document.querySelector('.elementsAfterDeleting')
-beforeDelete.innerHTML = dataArray + '<br/>'
-deleteBtn.addEventListener('click', ()=>{
-  for(let i = place; i<dataArray.length-1; i++){
-    dataArray[i] = dataArray[i+1]
+let dataArray = [43, 5, 63, 23, 12, 67, 66, 88, 45, 32];
+let place = document.querySelector("#delete").value;
+let deleteBtn = document.querySelector(".delete-btn");
+let beforeDelete = document.querySelector(".elementsBeforeDeleting");
+let afterDelete = document.querySelector(".elementsAfterDeleting");
+beforeDelete.innerHTML = dataArray + "<br/>";
+deleteBtn.addEventListener("click", () => {
+  for (let i = place; i < dataArray.length - 1; i++) {
+    dataArray[i] = dataArray[i + 1];
   }
-  dataArray.length = dataArray.length-1
-  afterDelete.innerHTML = dataArray + '<br/>'
-})
+  dataArray.length = dataArray.length - 1;
+  afterDelete.innerHTML = dataArray + "<br/>";
+});
+
+// Searching an element in an array
+// 1. we will use linear search other searching algos will be listed in searching parts.
+
+let itemList = [25, 36, 24, 24, 24, 24, 77, 89, 21];
+let item = 24;
+let index = [];
+let flag = [];
+// I used this for have same values in the array.
+for (let i = 0; i < itemList.length; i++) {
+  let isDuplicate = false;
+
+  for (let j = 0; j < itemList.length; j++) {
+    if (i !== j && itemList[i] === itemList[j]) {
+      isDuplicate = true;
+      break;
+    }
+  }
+  flag.push(isDuplicate);
+}
+
+console.log(flag);
+for (let i = 0; i < itemList.length; i++) {
+  if (itemList[i] === item && flag[i]) {
+    index.push(i);
+  }
+}
+console.log(index);
