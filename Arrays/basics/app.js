@@ -92,3 +92,21 @@ for (let i = 0; i < itemList.length; i++) {
   }
 }
 console.log(index);
+
+
+//Merging two arrays
+
+// in the first method we are going to use for loop 
+
+let moreData = [23, 32, 45, 1, 3, 5, 43, 13, 35];
+let data2 = [54, 254, 154, 334, 657, 32, 57, 3, 255, 4];
+let data3 = [];
+
+for (let i = 0; i < moreData.length; i++) {
+  data3[i] = moreData[i];
+}
+console.log(data3); 
+for (let i = 0; i < data2.length; i++) {
+  data3[moreData.length + i] = data2[i];
+}
+console.log(data3); 
