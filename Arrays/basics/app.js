@@ -93,10 +93,9 @@ for (let i = 0; i < itemList.length; i++) {
 }
 console.log(index);
 
-
 //Merging two arrays
 
-// in the first method we are going to use for loop 
+// in the first method we are going to use for loop
 
 let moreData = [23, 32, 45, 1, 3, 5, 43, 13, 35];
 let data2 = [54, 254, 154, 334, 657, 32, 57, 3, 255, 4];
@@ -105,8 +104,46 @@ let data3 = [];
 for (let i = 0; i < moreData.length; i++) {
   data3[i] = moreData[i];
 }
-console.log(data3); 
+console.log(data3);
 for (let i = 0; i < data2.length; i++) {
   data3[moreData.length + i] = data2[i];
 }
-console.log(data3); 
+console.log(data3);
+
+// using while loop.
+// problem is you have to sort them by yourself
+let a = [54, 254, 154, 334, 657, 32, 57, 3, 255, 4];
+let b = [23, 32, 45, 1, 3, 5, 43, 13, 35];
+let c = [];
+a = a.sort();
+b = b.sort();
+let d1 = 0;
+let d2 = 0;
+let d3 = 0;
+
+while (d1 < a.length && d2 < b.length) {
+  if (a[d1] < b[d2]) {
+    c[d3] = a[d1];
+    d1++;
+  } else {
+    c[d3] = b[d2];
+    d2++; // Increment d2 instead of d1
+  }
+  d3++;
+}
+
+// If there are remaining elements in array 'a', add them to 'c'
+while (d1 < a.length) {
+  c[d3] = a[d1];
+  d1++;
+  d3++;
+}
+
+// If there are remaining elements in array 'b', add them to 'c'
+while (d2 < b.length) {
+  c[d3] = b[d2];
+  d2++;
+  d3++;
+}
+
+console.log(c);
