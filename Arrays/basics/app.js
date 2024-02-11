@@ -147,3 +147,19 @@ while (d2 < b.length) {
 }
 
 console.log(c);
+
+// array sorting
+// here we are usgin bubble sort
+
+let arraydata = [343, 576, 2, 676, 45, 87, 23, 84, 12, 787, 23, 76, 26];
+
+for (let i = 0; i < arraydata.length; i++) {
+  for (let j = 0; j < arraydata.length; j++) {
+    if (arraydata[j] > arraydata[j + 1]) {
+      let temp = arraydata[j];
+      arraydata[j] = arraydata[j + 1];
+      arraydata[j + 1] = temp;
+    }
+  }
+}
+console.log(arraydata)
